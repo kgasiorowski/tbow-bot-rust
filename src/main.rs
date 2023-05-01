@@ -15,7 +15,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     })?;
     let mut headers = HeaderMap::new();
     headers.insert(CONTENT_TYPE, "application/json".parse().unwrap());
-    let res = reqwest::Client::new().post(config::DISCORD_WEBHOOK_URL).headers(headers).body(json).send().await?;
+    let res = reqwest::Client::new()
+        .post(config::DISCORD_WEBHOOK_URL)
+        .headers(headers)
+        .body(json)
+        .send()
+        .await?;
 
     let status = res.status();
     println!("Status: {}", status);
