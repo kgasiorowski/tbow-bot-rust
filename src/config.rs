@@ -1,0 +1,1 @@
+pub const DISCORD_WEBHOOK_URL: &str = "...";
